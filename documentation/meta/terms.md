@@ -38,14 +38,16 @@ The Competition is held in France from March 17th 2025 to August 17nd 2025 inclu
 
 General prizes:
 
-- **🏆 1st Prize : €**
-- **🥈 2nd Prize : €**
-- **🥉 3rd Prize : €**
+<ul>
+  <li>🥇 <b>1st Place:</b> 4000 €</li>
+  <li>🥈 <b>2nd Place:</b> 2000 €</li>
+  <li>🥉 <b>3rd Place:</b> 1000 €</li>
+  <li>💡 <b>Most Original Solution:</b> 1000 €</li>
+</ul>
 
-Special prizes:
+Winners will also gain visibility at the Confiance.ai Community Event.
 
 - **Excellence award : €**
-- **Best student solution : €**
 
 ::: tip The general and special prizes are not cumulative
 Winning one of the general prizes

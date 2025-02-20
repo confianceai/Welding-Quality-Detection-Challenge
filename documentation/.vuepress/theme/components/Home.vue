@@ -51,7 +51,6 @@
 </template>
 
 <script>
-// import NavLink from "./NavLink.vue";
 export default {
   name: "Home",
 
@@ -69,10 +68,6 @@ export default {
       };
     },
     accentColor() {
-      console.log("accentColor");
-      console.log(this.$style);
-      console.log(this.$style.accentColor);
-
       return getComputedStyle(document.documentElement)
         .getPropertyValue("$accentColor")
         .trim();
@@ -180,6 +175,7 @@ export default {
   .home
     padding-left 1.5rem
     padding-right 1.5rem
+
     .bg 
       border-bottom-left-radius 100% 5%
       border-bottom-right-radius 100% 5%
