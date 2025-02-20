@@ -47,8 +47,6 @@ General prizes:
 
 Winners will also gain visibility at the Confiance.ai Community Event.
 
-- **Excellence award : €**
-
 ::: tip The general and special prizes are not cumulative
 Winning one of the general prizes
 hinder the access to special prizes.
