@@ -172,7 +172,7 @@ After the kick-off, participants will be invited to create an account and downlo
   }
 </style>
 
-## Join the Newsletter
+## Stay informed about the latest challenge updates
 
 <div id="mc_embed_shell" style="text-align: center; max-width: 700px; margin: 0 auto;">
   <link
