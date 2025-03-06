@@ -174,7 +174,7 @@ After the kick-off, participants will be invited to create an account and downlo
 
 ## Stay informed about the latest challenge updates
 
-<div id="mc_embed_shell" style="text-align: center; max-width: 700px; margin: 0 auto;">
+<div id="mc_embed_shell" style="text-align: center; max-width: 750px; margin: 0 auto;">
   <link
     href="//cdn-images.mailchimp.com/embedcode/classic-061523.css"
     rel="stylesheet"
@@ -182,8 +182,7 @@ After the kick-off, participants will be invited to create an account and downlo
   />
   <div id="mc_embed_signup">
     <form
-      action="https://confiance.us6.list-manage.com/subscribe/post?u=45feb84423dd88462feb155c0&amp;id=89976dbaa5&amp;v_id=3856&amp;f_id=008d1ee2f0"
-      method="post"
+      action='https://confiance.us6.list-manage.com/subscribe/post?u=45feb84423dd88462feb155c0&amp;id=89976dbaa5&amp;v_id=3867&amp;f_id=008d1ee2f0method="post"'
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"
       class="validate"
@@ -191,59 +190,63 @@ After the kick-off, participants will be invited to create an account and downlo
     >
       <div id="mc_embed_signup_scroll">
         <div class="indicates-required">
-          <span class="asterisk">*</span> indique "obligatoire"
+          <span class="asterisk">*</span> indicates required
         </div>
         <div class="mc-field-group">
-          <label for="mce-EMAIL"
-            >Email address <span class="asterisk">*</span></label
-          ><input
+          <label for="mce-EMAIL">
+            Email address <span class="asterisk">*</span>
+          </label>
+          <input
             type="email"
             name="EMAIL"
             class="required email"
             id="mce-EMAIL"
-            required=""
+            required
             value=""
           />
         </div>
         <div class="mc-field-group">
-          <label for="mce-FNAME"
-            >First name <span class="asterisk">*</span></label
-          ><input
+          <label for="mce-FNAME">
+            First name <span class="asterisk">*</span>
+          </label>
+          <input
             type="text"
             name="FNAME"
             class="required text"
             id="mce-FNAME"
-            required=""
+            required
             value=""
           />
         </div>
         <div class="mc-field-group">
-          <label for="mce-LNAME"
-            >Last name <span class="asterisk">*</span></label
-          ><input
+          <label for="mce-LNAME">
+            Last name <span class="asterisk">*</span>
+          </label>
+          <input
             type="text"
             name="LNAME"
             class="required text"
             id="mce-LNAME"
-            required=""
+            required
             value=""
           />
         </div>
         <div class="mc-field-group">
-          <label for="mce-MMERGE5"
-            >Entity / University <span class="asterisk">*</span></label
-          ><input
+          <label for="mce-MMERGE5">
+            Entity / University<span class="asterisk">*</span>
+          </label>
+          <input
             type="text"
             name="MMERGE5"
             class="required text"
             id="mce-MMERGE5"
-            required=""
+            required
             value=""
           />
         </div>
         <div class="mc-field-group">
-          <label for="mce-MMERGE6">Position </label
-          ><input
+          <label for="mce-MMERGE6">Position</label>
+          <input
             type="text"
             name="MMERGE6"
             class="text"
@@ -251,6 +254,13 @@ After the kick-off, participants will be invited to create an account and downlo
             value=""
           />
         </div>
+        <input type="hidden" name="MMERGE7" id="mce-MMERGE7" value="prospect" />
+        <input
+          type="hidden"
+          name="MMERGE8"
+          id="mce-MMERGE8"
+          value="Welding Quality Detection Challenge"
+        />
         <div
           id="mergeRow-gdpr"
           class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group"
@@ -268,11 +278,11 @@ After the kick-off, participants will be invited to create an account and downlo
             >
               <label class="checkbox subfield" for="gdpr82013">
                 <input
-                    type="checkbox"
-                    id="gdpr_82013"
-                    name="gdpr[82013]"
-                    class="gdpr"
-                    value="Y"
+                  type="checkbox"
+                  id="gdpr_82013"
+                  name="gdpr[82013]"
+                  class="gdpr"
+                  value="Y"
                 />
                 <span>
                     I want to subscribe to the Confiance.ai newsletter
@@ -287,35 +297,37 @@ After the kick-off, participants will be invited to create an account and downlo
                   value="Y"
                 />
                 <span>
-                I want to stay informed about upcoming Welding Quality Detection challenge
+                I want to stay informed about upcoming Trustworthy AI challenges
                 </span>
-            </label>
+              </label>
             </fieldset>
-            <p style="font-size: 12px">
+            <p style="font-size: 0.8em">
               You can change your mind at any time by clicking on the
               “Unsubscribe” link in the footer of any email you receive from us,
               or by contacting us at communication@irt-systemx.fr. We will treat
               your information with respect. By clicking below, you agree that
-              we may process your information in accordance with these terms. We
-              use Mailchimp as our marketing platform. By clicking below to
+              we may process your information in accordance with these terms.
+              <br /><br />
+              We use Mailchimp as our marketing platform. By clicking below to
               subscribe, you acknowledge that your information will be
               transferred to Mailchimp for processing. Learn more about
               Mailchimp's privacy practices here:
-              https://mailchimp.com/legal/terms
+              <a href="https://mailchimp.com/legal/terms" target="_blank">
+                https://mailchimp.com/legal/terms
+              </a>
             </p>
           </div>
           <div class="content__gdprLegal">
-            <p style="font-size: 12px">
+            <p style="font-size: 0.8em">
               We use Mailchimp as our marketing platform. By clicking below to
               subscribe, you acknowledge that your information will be
               transferred to Mailchimp for processing.
-              <a href="https://mailchimp.com/legal/terms">Learn more</a> about
-              Mailchimp's privacy practices.
+              <a href="https://mailchimp.com/legal/terms" target="_blank">
+                Learn more
+              </a>
+              about Mailchimp's privacy practices.
             </p>
           </div>
-        </div>
-        <div hidden="">
-          <input type="hidden" name="tags" value="3248529,4058414" />
         </div>
         <div id="mce-responses" class="clear">
           <div
@@ -354,7 +366,6 @@ After the kick-off, participants will be invited to create an account and downlo
     src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"
   ></script>
 </div>
-
 
 ## Contact
 
