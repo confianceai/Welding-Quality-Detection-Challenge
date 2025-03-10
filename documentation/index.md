@@ -251,6 +251,7 @@ After the kick-off, participants will be invited to create an account and downlo
             name="MMERGE6"
             class="text"
             id="mce-MMERGE6"
+            required
             value=""
           />
         </div>
