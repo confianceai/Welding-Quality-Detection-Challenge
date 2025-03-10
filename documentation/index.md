@@ -245,7 +245,7 @@ After the kick-off, participants will be invited to create an account and downlo
           />
         </div>
         <div class="mc-field-group">
-          <label for="mce-MMERGE6">Position</label>
+          <label for="mce-MMERGE6">Position<span class="asterisk">*</span></label>
           <input
             type="text"
             name="MMERGE6"
