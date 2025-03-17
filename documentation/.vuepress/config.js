@@ -41,6 +41,10 @@ module.exports = {
         lastUpdated: "Last Updated",
         nav: [
           {
+            text: "Datasets",
+            link: "/docs/datasets/",
+          },
+          {
             text: "Newsletter",
             link: "/#nwsltr",
           },
