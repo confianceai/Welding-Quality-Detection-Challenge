@@ -10,10 +10,9 @@ This competition is organized by:
 
 ## 2 - Purpose of the competition and calendar
 
-The Organizers have decided to organize a competition with the purpose of improving
-the trustworthiness of an AI component.
+The Organizers have decided to organize a competition with the purpose of improving the trustworthiness of an AI component.
+The Competition is held in France from April 28th 2024 to August 17th 2024 inclusive
 
-The Competition is held in France from March 17th 2025 to August 17nd 2025 inclusive.
 
 ### This Competition runs in 3 phases:
 
@@ -21,7 +20,7 @@ The Competition is held in France from March 17th 2025 to August 17nd 2025 inclu
   material and the competition platform, make their first submissions and
   provide feedback to organizers. Based on this feedback, organizers can adjust
   and improve the competition for the next phase.
-- **Development phase (18 weeks):** participants will develop their solutions and
+- **Development phase (16 weeks):** participants will develop their solutions and
   will be able to test their already trained models using a provided validation
   dataset. They can also have access continuously to the global score
   corresponding their submitted solution.
@@ -30,8 +29,8 @@ The Competition is held in France from March 17th 2025 to August 17nd 2025 inclu
 
 ### Calendar:
 
-- Phase 1: Warmup phase ( 4 weeks) March 17 th - April 13 th
-- Phase 2: Development phase (1 8 weeks) April 14 th - August 17 th
+- Phase 1: Warmup phase ( 4 weeks) March 31 st - April 27 th
+- Phase 2: Development phase (16 weeks) April 28 th - August 17 th
 - Phase 3: Final phase ( 4 weeks) August 18 th - September 15th
 
 ### Definition and value of awards :
@@ -47,11 +46,6 @@ General prizes:
 
 Winners will also gain visibility at the Confiance.ai Community Event.
 
-::: tip The general and special prizes are not cumulative
-Winning one of the general prizes
-hinder the access to special prizes.
-:::
-
 ### Criteria to determinate the winners:
 
 The ranking of the submission will be based on the score as defined in the evaluation
@@ -62,13 +56,11 @@ final ranking.
 
 ## 3 - Communication
 
-The Competition is announced on Codabench[link], as well as on the website
-https://renault-welding-challenge.csia.irtsystemx.org/.
+The Competition is announced on the website https://confianceai.github.io/Welding-Quality-Detection-Challenge/ 
 
 ## 4 - Participation to the Competition
 
-- To enter in Competition, entrants must register on Codabench platform at
-  [link].
+- To enter in Competition, entrants must register on Codabench platform.
 - The Competition is free of charge, with no obligation to purchase and no
   participation fees.
 - Participants may be individuals or companies. - This Competition is open to
@@ -90,6 +82,7 @@ https://renault-welding-challenge.csia.irtsystemx.org/.
   formula.
 - During phases 1 and 2, the participant can submit their code and see the
   associated score on the leader board.
+- Participants are granted the right to modify, process, and use the images provided as part of the challenge for the sole purpose of participating in the challenge. This includes, but is not limited to, using the images for training models, testing algorithms, and creating relevant outputs related to the challenge. Participants may not use the provided images for any commercial purposes or outside the scope of this challenge without prior written consent.
 - The Organizers may provide additional baseline results during the challenge to
   stimulate the Competition.
 - The participant, and/or the team using a group account, will be limited to 5
@@ -103,8 +96,7 @@ https://renault-welding-challenge.csia.irtsystemx.org/.
   running into trouble with your submissions, please get in touch with us.
 - The Organizers strongly encourage all participants to share their codes and
   make them accessible in public submission.
-- The final ranking of the participants will be made using the global score
-  calculated based on the 3 categories of criteria, and sent to all participants.
+- The final ranking of the participants will be made using the global score and sent to all participants.
 - The last submission in development phase from the participants will be the
   one evaluated and ranked at the final automated phase.
 

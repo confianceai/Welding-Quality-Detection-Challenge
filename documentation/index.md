@@ -130,11 +130,11 @@ Here is below some examples of weldings `OK` and `KO` on two different welding s
 
 <div style="display: flex; justify-content: flex-start; flex-wrap: wrap;">
   <ul>
-    <li><b>Competition kick-off:</b> March 17th <br>
+    <li><b>Competition kick-off:</b> March 31st <br>
     Competitors will receive the starter-kit and will have access to the challenge datasets.</li>
-    <li><b>Warm-up phase:</b> from March 17th to April 13th.<br>
+    <li><b>Warm-up phase:</b> from March 31st to April 27th.<br>
     Participants can get familiar with the competition platform and the provided material. Organizers can use participants’ feedback to adjust the challenge for the next phases.</li>
-    <li><b>Development phase:</b> from April 14th to August 17th.<br>
+    <li><b>Development phase:</b> from April 28th to August 17th.<br>
     Participants will develop their own solutions, which they can test on a provided dataset. They will be able to see the score of their submitted solution. Any submitted solution can be adjusted until the deadline is met.</li>
     <li><b>Final phase:</b> from August 18th to September.<br>
     During this phase, the organizers will review the submitted results, finalize the ranking, and prepare the results.</li>
