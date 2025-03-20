@@ -2,7 +2,7 @@ module.exports = {
   title: "WELDING QUALITY DETECTION CHALLENGE", // Ref：https://v1.vuepress.vuejs.org/config/#title
   description:
     "Join us and engage with a real-world challenge to enhance weld quality inspection in industrial processes.", // Ref：https://v1.vuepress.vuejs.org/config/#description
-  base: '/Welding-Quality-Detection-Challenge/',
+  base: "/Welding-Quality-Detection-Challenge/",
 
   // Extra tags to be injected to the page HTML `<head>`
   // ref：https://v1.vuepress.vuejs.org/config/#head
@@ -41,8 +41,8 @@ module.exports = {
         lastUpdated: "Last Updated",
         nav: [
           {
-            text: "Datasets",
-            link: "/docs/datasets/",
+            text: "Dataset",
+            link: "/docs/dataset/",
           },
           {
             text: "Newsletter",
