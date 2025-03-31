@@ -25,7 +25,7 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
 <br>
 <br>
 
-<CountdownTimer targetDate="2025-03-31T17:00:00+01:00" message="Before the Kick-off" />
+<CountdownTimer targetDate="2025-04-28T15:00:00+01:00" message="Before development phase" />
 
 ## Context
 
