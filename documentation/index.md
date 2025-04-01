@@ -368,6 +368,13 @@ After the kick-off, participants will be invited to create an account and downlo
   ></script>
 </div>
 
+## Useful links:
+
+Github: [Reference Solution](https://github.com/confianceai/Challenge-Welding-Reference-Solution-1)
+        [Starting kit](https://github.com/confianceai/Challenge-Welding-Starter-Kit)
+
+Solution submission: [Codabench](https://www.codabench.org/competitions/6931/)
+
 ## Contact
 
 Challenge mail: [challenge.confiance@irt-systemx.fr](mailto:challenge.confiance@irt-systemx.fr)

@@ -45,6 +45,10 @@ module.exports = {
             link: "/docs/dataset/",
           },
           {
+            text: "Getting started",
+            link: "/docs/getting_started/",
+          },
+          {
             text: "Newsletter",
             link: "/#nwsltr",
           },
