@@ -46,7 +46,6 @@ Please note that this complete dataset is the one required for the challenge.
 
 The full dataset can be downloaded as a ZIP file: [Download Welding Detection Challenge Dataset](https://minio-storage.apps.confianceai-public.irtsysx.fr/challenge-welding/datasets/welding-detection-challenge-dataset.zip)
 
-### Tools
 <br>
 <br>
 <DebiAIPanel/>
