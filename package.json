@@ -21,6 +21,7 @@
     "vuepress-plugin-zooming": "^1.1.8"
   },
   "dependencies": {
-    "cspell": "^8.17.3"
+    "cspell": "^8.17.3",
+    "vuepress-plugin-latex": "^0.1.3"
   }
 }

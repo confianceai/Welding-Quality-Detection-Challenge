@@ -45,6 +45,10 @@ module.exports = {
             link: "/docs/dataset/",
           },
           {
+            text: "Evaluation",
+            link: "/docs/evaluation/",
+          },
+          {
             text: "Getting started",
             link: "/docs/getting_started/",
           },
@@ -76,5 +80,6 @@ module.exports = {
       },
     ],
     ["matomo", { trackerUrl: "https://matomo.irtsysx.fr/", siteId: "16" }],
+    [ 'latex']
   ],
 };

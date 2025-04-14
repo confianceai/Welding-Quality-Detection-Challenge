@@ -33,7 +33,7 @@ In the highly competitive automotive industry, quality control is essential to e
 
 One of the challenges for Renault is to improve the reliability of quality control for welding seams in automotive body manufacturing. Currently, this inspection is consistently performed by a human operator due to the legal dimension related to user safety. During an industrial process, this task is resource-consuming. The key challenge is to develop an AI-based solution that reduces the number of inspections required by the operator through automated pre-validation.
 
-Within the [Confiance.ai](https://www.confiance.ai/) Research Program, Renault Group and SystemX worked jointly on the development of trustworthy AI components tackling this problem. Now part of the [European Trustworthy Foundation (ETF)](https://www.confiance.ai/foundation/), we want to ensure that these tools effectively validate the proposed AI models according to the trustworthy criteria defined by the industry (Intended Purpose).
+Within the [Confiance.ai](https://www.confiance.ai/) Research Program, Renault Group and SystemX worked jointly on the development of trustworthy AI components tackling this problem. Now part of the [European Trustworthy Foundation (ETF)](https://www.confiance.ai/foundation/), we want to ensure that these tools effectively validate the proposed AI-Component according to the trustworthy criteria defined by the industry (Intended Purpose).
 
 This industrial use case, provided by Renault Group, represents the “Visual Inspection” thematic through a classification problem.
 
@@ -55,7 +55,7 @@ Three possible outputs are possible:
 
 - **OK**: The welding in the image has no defect.
 - **KO**: The welding in the image has defects.
-- **UNK**: The welding state is UNKNOWN. UNKNOWN is used to indicate that the model is not sure about the predicted class. As we will see later in the evaluation process, an UNKNOWN output can be less penalizing than a False Negative (meaning a true KO predicted as OK), which has a critical cost.
+- **UNKNOWN**: The welding state is UNKNOWN. UNKNOWN is used to indicate that the AI-Component is not sure about the predicted class. The UNKNOWN output can be less penalizing than a False Negative (meaning a true KO predicted as OK), which has a critical cost but is also penalized if it used in place of KO label.
 
 This is illustrated by the figure below:
 
@@ -63,42 +63,29 @@ This is illustrated by the figure below:
   <img src="process.png" alt="process" width="800px">
 </div>
 
-Optionally, the AI component could additionally return the probability associated with each possible output state. If present, this information will be used by the evaluation process and could improve the final quality score of the solution.
+Optionally, the AI component could additionally return the probability associated with each possible output state. If probabilities are not provided, they will be inferred based on the label by assigning a probability of 1 to the predicted class.
 
-## Operational Domain Design (ODD) Definition
+The component must also produce an **OOD (Out-of-Distribution) score**. This score takes a value between 0 and +infinity. When the score is greater than or equal to 1, it indicates that the input has been detected as OOD. By default, in the absence of an OOD detection module, the OOD score can be set to 0.
 
-Optionally, the AI component could additionally return the probability associated with each possible output state. If present, this information will be used by the evaluation process and could improve the final quality score of the solution.
+## Purpose of the Challenge
 
-The Operational Domain Design defines the set of input images for which the AI component is expected to return a predicted state.
+The **Trustworthy AI Challenge** aims to build a reliable AI component to assist in weld seam conformity qualification. This involves:
 
-Here are the conditions and environments in which the AI system is expected to operate effectively and safely:
+- Developing an **efficient AI component** that meets performance requirements in terms of anomaly detection, meaning high defect detection accuracy while minimizing false positives that cause time loss due to unnecessary operator verification.
+- Developing a **trustworthy AI component** that meets ML trustworthiness requirements, ensuring the system can operate effectively in real-world scenarios — such as being robust to minor environmental disturbances, generalizing across datasets, expressing uncertainty, and handling anomalies.
 
-- The luminosity of an image can be between **60 and 140 lumens**.
-- The level of blur (due to vibration of the production line) of an image can be **variable**.
-- The orientation of welding seams can vary in the image with a **rotation angle between -10° and 10°**.
-- The position of the piece in the image can be **translated by 5 millimeters** (corresponding to **100 pixels** in the image depending on seams and camera position).
+## Operational Design Domain (ODD) of the AI Component
 
-For images that are out of the ODD, the AI component shall return **“UNKNOWN”**, and the image is sent to the operator.
+The Operational Design Domain refers to a set of business specifications defining the conditions under which the AI component must operate effectively. In our case, domain experts defined the acceptable conditions for image acquisition:
 
-The operational constraints are as follows:
+- Image brightness can range between 60 and 140 lumens.
+- Image blur (caused by production line vibrations) may vary.
+- Welding seams may appear with rotation angles between -10° and +10°.
+- The position of the piece in the image may be translated by up to 5 millimeters (approximately 100 pixels, depending on seam and camera position).
 
-- **False negative detections** (defective welding qualified as OK by AI system) have a safety cost and shall **imperatively be minimized**. This is a **primary objective**.
-- **Maximize the accuracy** of prediction.
-- Some welding seams are **more critical than others**, depending on their position. The level of criticality impacts the cost of false negatives.
+In practice, while these conditions are helpful for guiding design and evaluation, they are not always directly exploitable. For example, creating a descriptor capable of measuring image brightness independently of background content is a non-trivial challenge.
 
-## Evaluation Criteria
-
-The submitted AI component will be evaluated according to different quality evaluation metrics, including:
-
-- **Operational cost metrics**: Based on the confusion matrix and a non-symmetrical cost matrix due to operational constraints.
-- **Uncertainty metrics**: Measuring the ability of the model to use uncertainty to improve trustworthiness in its output.
-- **Robustness metrics**: Measuring the ability of the model to be invariant to empirical perturbations on input images (blur, luminosity, rotation, translation).
-- **Monitoring metrics**: Measuring the ability of the model to detect if the given input is within the ODD and adapt its output accordingly.
-- **Explainability metrics**: Measuring the ability of the model to provide an explanation for its decision to help the operator save time during inspection.
-
-More details about these different criteria will be added in the coming weeks.
-
-## Dataset
+## Data Specificities
 
 The dataset contains 22,851 images split among three different welding seams. An important property of this dataset is that it is highly unbalanced. There are only 500 KO images in the entire dataset.
 
@@ -125,6 +112,105 @@ Here is below some examples of weldings `OK` and `KO` on two different welding s
 <br>
 <br>
 <br>
+
+### Unbalanced Dataset
+
+The dataset is highly imbalanced, with **98% of samples labeled as OK** and only **2% as KO** (defective). It is also slightly imbalanced between weld types:  
+- `C20`: 22%  
+- `C33`: 39%  
+- `C102`: 39%
+
+Some weld types may present defects that are inherently more difficult to detect than others.
+
+### Heterogeneous Dataset
+
+The dataset contains heterogeneous images due to several factors:
+- Three different weld types are included, each with distinct shapes and backgrounds.
+- For a given weld type, multiple viewpoints and capture angles exist.
+- Even within a single setup, image quality varies due to lighting conditions, part positioning, or motion blur.
+
+A simple exploratory data analysis reveals relatively “homogeneous” clusters, identified using the **HDBSCAN** algorithm applied on a **UMAP-reduced latent space** produced by a **Variational Autoencoder (VAE)**.
+
+![image](dataset/Analyse_1.png)
+
+Visualizing blur distribution conditioned on weld type, shows that blur quality varies according to the type of weld.
+
+![image](dataset/Analyse_2.png)
+
+Because descriptors like blur or luminance are not invariant across heterogeneous conditions, the operational domain cannot always be explicitly modeled. Therefore, the challenge is to design AI-component with **robustness** and **anomaly detection** capabilities that can adapt to these ill-defined variations.
+
+## AI Component Specifications and Operational Requirements
+
+Discussions with operators and data analysis have highlighted key needs:
+
+- **False negatives** (defective welds classified as OK) pose safety risks and must be minimized — this is the top priority.
+- **Prediction accuracy** should be maximized.
+- The **criticality** of a weld varies by location, influencing the impact of a false negative.
+- Variability in image quality demands mechanisms that ensure AI-component **reliability** and **input data validation**.
+
+### Requirements
+
+Operational specifications can be grouped into three categories: **general**, **performance**, and **trustworthy AI** requirements.
+
+#### General Requirements
+- The component must process three weld types: `['C20', 'C33', 'C102']`.
+- Input images may vary in size, quality, and framing.
+- The component must be trained on the provided weld image dataset, which may suffer from quality and representativeness issues — requiring data cleaning or augmentation.
+
+#### **Performance Requirements**
+- High detection accuracy must be achieved with minimal false positives.
+- Operational performance evaluation will take into account the **criticality** of each weld type.
+- Inference time must not exceed **1/12 of a second** for each image.
+
+#### **Trustworthy AI Requirements**
+
+- **Robustness**: The AI-Component should be resilient to slight variations in image capture (brightness, blur, minor rotations [-10°, +10°], translations up to ~20 pixels).
+
+- **Uncertainty Estimation**: The AI-component should provide classification probabilities and an `"unknown"` class to express indecision.
+
+- **Generalization**: The AI-component should generalize to unseen weld types (`['C19', 'C34', 'C101']`) that share common features with training data. 
+
+- **Out-of-Distribution (OOD) Monitoring**: The AI-component must detect OOD inputs, such as images with poor visibility due to blur, occlusion, or unusual coloration. 
+
+- **Drift Handling**: The AI-component must remain robust to **mild image capture degradation** (e.g. Gaussian noise, dead pixels) and detect strong degradation as **OOD**. 
+
+## Trustworthy Evaluation
+
+The goal of the **trustworthy evaluation** is to measure both key **performance** and **trustworthiness & indicators KPIs**, assessing the AI system’s ability to function reliably under real-world conditions — including robustness, generalization, uncertainty management, and anomaly detection.
+
+The evaluation framework is based on a **multi-criteria analysis** of six **trust attributes**:
+
+> **Performance, Uncertainty Assessment, Robustness, OOD Monitoring, Generalization, and Data Drift Handling**
+
+Each is evaluated via **Trust-KPIs**, which are composed of specific criteria measured using dedicated metrics. These metrics are aggregated to provide synthetic indicator that will facilitate decision-making.
+
+Evaluation may require specific datasets — selected or synthetically generated — to simulate controlled scenarios. From the AI component’s predictions on these datasets, the following KPIs will be computed:
+
+- **Performance KPI & Metrics**  
+  Evaluate jointly accuracy (operational and ML), inference time, and weld-type criticality sensitivity taking into account data heterogeneity and operational specificity. It is based on a standard evaluation data set contains 20% of the data drawn to obtain a representative sample of the data. 
+
+- **Uncertainty KPI & Metrics**  
+  Evaluate jointly the relevance and calibration of the AI-Component’s confidence estimates to ensure alignment between expressed uncertainty and actual error risk. The standard evaluation data set contains 20% of the data drawn to obtain a representative sample of the data. It is based on a standard evaluation data set contains 20% of the data drawn to obtain a representative sample of the data.
+
+- **Robustness KPI & Metrics**  
+  Evaluate jointly the AI-Component’s ability to produce stable predictions under slight perturbations (blur, lighting, rotation, translation), in line with ODD specifications. It is based on a Robustness evaluation set generated from real data (chosen to be representative and of good quality) on which we applied perturbation of controlled magnitude. 
+
+    ![image](dataset/Blur_illu.png)
+
+- **OOD Monitoring KPI & Metrics**  
+  Evaluate the AI-Component’s ability to detect inputs that fall outside the expected data distribution (e.g. real or synthetic OOD images with poor weld visibility). It is based on a real evaluation set selected through discovery-based protocol, or synthetic evaluation set generated on a set of real data (chosen to be representative and of good quality) to which we have applied strong disturbances (ex: Coloration, brightness, contrast).
+ 
+  ![image](dataset/Ood_illu.png)
+
+- **Generalization KPI & Metrics**  
+  Evaluate the AI-Component’s ability to generalize to unseen weld types that resemble those in the training set. The generalization data were chosen on the basis of their proximity to the training data.
+
+  ![image](dataset/Gen_illu.png)
+
+- **Data Drift KPI & Metrics**  
+  Evaluate the AI-Component’s ability to handle hardware degradation: robustness under mild drift, and OOD detection under severe drift. It is based on a data-drift evaluation set generated on a set of real data (chosen to be representative and of good quality) to which we have applied strong disturbances of increasing intensity (ex: Gaussian noise).
+
+  ![image](dataset/Drift_illu.png)
 
 ## Timeline
 
