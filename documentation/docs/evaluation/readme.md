@@ -52,6 +52,9 @@ After identifying the relevant **trust attributes** (e.g., *robustness*) associa
 
 The aggregation process consists in several key steps:
 
+In this section, $\alpha_{i}$ $\beta_{i}$ and $k_{i}$ are weigthing or scaling coeficients used for the multicriterions aggregation.
+
+
 ### 1. Computation of Metrics Related to Trust Attributes
 
 - Several metrics are computed for each attribute using specific evaluation datasets, in order to capture different aspects of the attribute’s performance.
@@ -62,15 +65,14 @@ The aggregation process consists in several key steps:
 - All attribute-specific metrics are normalized to a score within the range \[0, 1\], where **1** represents the best possible performance.
 - Normalization is performed using appropriate transformations (e.g., sigmoid functions, exponential decay), depending on the nature of each metric.
 
-Example normalization functions:
-$$OP_{score} = e^{-k \cdot M_{OP-P}}$$
-
 ### 3. Trust-KPI Aggregation
 
-- For each attribute, a specific aggregation function combines the normalized metrics into a single **trust-KPI**.
+- For each attribute denoted X, a specific aggregation function combines the k-th normalized X metrics into a single **trust-KPI** denoted $I_X$.
 - This allows for a comprehensive representation of the model’s performance with respect to each trust attribute.
 
-$$KPI_{X} = agg({metric}_{X^1},..,{Xmetric}_{X^k})$$
+$$ I_X = agg(X_{metric_1},..,X_{metric_k})$$
+
+For example, if X is the attribute "performance":  $X_{metric_1}=OP$, $X_{metric_2}=ML$, and $X_{metric_3}=Time$
 
 ### 4.Piecewise Linear Rescaling of Trust-KPIs
 
@@ -88,7 +90,7 @@ $$f'(x) =
 ### 5. Weighted Aggregation of Trust-KPIs
   - The rescaled attribute KPIs are then aggregated into a **final evaluation score** using a **weighted mean**.
   - Each weight reflects the relative importance of its corresponding attribute within the overall trustworthy AI assessment.
-$$\alpha_1*I^{perf} + \alpha_2*I^{U} + \alpha_3*I^{Rob} + \alpha_4*I^{ood} + \alpha_5*I^{gen}+\alpha_6*I^{drift}$$
+$$ score= \alpha_1*I_{perf} + \alpha_2*I_{U} + \alpha_3*I_{rob} + \alpha_4*I_{ood} + \alpha_5*I_{gen}+\alpha_6*I_{drift}$$
 
 ### 6. Purpose of the Aggregation Protocol
 
@@ -105,13 +107,23 @@ The goal of this aggregation process is to produce a single, comprehensive trust
 **Metrics**:
   - **OP-Perf** (Operational Performance): Evaluates model performance through an operational view using confusion-matrix-based metrics that account for the cost of different error types and weld criticality.
 
-       $$ex : c^{op} = \sum_{k}^{|N|} \sum_{i}^{true_{class}} \sum_{j}^{pred_{class}} \mathbb{1}_{Top_{class}(\hat{y}_k)=j} * cost(i,j,k,k_{seam}) $$
+       $$OP = \sum_{k}^{|N|} \sum_{i}^{true_{class}} \sum_{j}^{pred_{class}} \mathbb{1}_{Top_{class}(\hat{y}_k)=j} * cost(i,j,k,k_{seam}) $$
+
+  where N is the number of sample in the evaluation datasset and $k_{seams}$ is the name of the welding-seam
+
+
   - **ML-Perf** (Machine Learning Performance): Assesses performance using standard ML metrics such as precision.
-    $$ex : s^{ml} = \frac{\sum_{i=1}^{N} \mathbb{1} (y_i = 1 \land \hat{y}_i = 1)}{\sum_{i=1}^{N} \mathbb{1} (\hat{y}_i = 1)}$$
+    $$ ML = \frac{\sum_{i=1}^{N} \mathbb{1} (y_i = 1 \land \hat{y}_i = 1)}{\sum_{i=1}^{N} \mathbb{1} (\hat{y}_i = 1)}$$
+
+where $y_i$ is the ground truth and $\hat{y}_i$ is the AI component prediction
+
+
   - **Inference Time (Times)**: Measures computational efficiency and runtime.
 
 **Performance-KPI**: Combines OP-Perf and ML-Perf using a weighted average, penalized by inference time to reflect operational constraints.
-$$ I^{Perf}=\frac{(\alpha_{op} e^{-k_c c^{op}} + \alpha_{ml} s^{ml})}{1 + k_t ln(1+t)} $$
+$$ I_{perf}=\frac{(\alpha_{op} e^{-k_c OP} + \alpha_{ml} ML)}{1 + k_t ln(1+t)} $$
+
+where $t$ is the inference time
 
 ### Uncertainty assessement
 **Purpose** : Evaluates the AI component’s ability to express meaningful and calibrated uncertainty, helping assess the risk of decision errors.
@@ -120,15 +132,17 @@ $$ I^{Perf}=\frac{(\alpha_{op} e^{-k_c c^{op}} + \alpha_{ml} s^{ml})}{1 + k_t ln
 
 **Metrics**:
   - **U-OP** (Uncertainty Operational Gain): Relative measures of the virtual gain (in operational term) to consider probabilistic outputs compared to hard outputs predictions in relation to the gap between the perfect solution and the current hard outputs predictions.
-  $$ex : c^{U} = \sum_{k}^{|N|} \sum_{i}^{true_{class}} \sum_{j}^{pred_{class}} \hat{y}_k(j) * cost(i,j,k,k_{seam}) $$
+  $$c^{U} = \sum_{k}^{|N|} \sum_{i}^{true_{class}} \sum_{j}^{pred_{class}} \hat{y}_k(j) * cost(i,j,k,k_{seam}) $$
 
-  $$ U^{op} = \frac{(c^{U} - c^{op})}{(c^{op} - c^{op}_{perfect})}$$
+  $$ UOP = \frac{(c^{U} - c^{op})}{(c^{op} - c^{op}_{perfect})}$$
 
   - **U-Calib** (Calibration Quality): Evaluates how well predicted probabilities align with actual error rates (e.g., Expected Calibration Error).
-    $$ex : \beta^U = \sum_{m=1}^{M} \frac{|B_m|}{N} acc(B_m) - conf(B_m)\ \text{ECE}$$
+    $$ UCalib = \sum_{m=1}^{M} \frac{|B_m|}{N} acc(B_m) - conf(B_m)$$
+
+Fore more information, see Expected calibration error definition :  lien wiki
 
 **Uncertainty-KPI** : Combines Uncertainty Operational Gain with calibration error.
-$$I^{U} = e^{k_u*U^{op}} * (1 - \beta^U)^{k_{\beta}} $$
+$$I_{U} = e^{k_{UOP}} * (1 - UCalib)^{k_{UCalib}} $$
 
 ### Robustness
 **Purpose**: Assesses model stability under perturbations such as blur, lighting variation, rotation, and translation.
@@ -138,15 +152,18 @@ $$I^{U} = e^{k_u*U^{op}} * (1 - \beta^U)^{k_{\beta}} $$
 ![image](./images/Blur_illu.png)
 
 **Metrics**:
-   - **Blur Robustness** : Aggregation (AUC) of the ML-performance (Precision score) across increasing perturbation levels.
+   - **Blur Robustness** : Aggregation (AUC) of the ML-performance (Precision score) across increasing perturbation levels .
    - **Luminance Robustness** : Aggregation (AUC) of the ML-performance (Precision score) across increasing perturbation levels.
    - **Rotation Robustness** : Aggregation (AUC) of the ML-performance (Precision score) across increasing perturbation levels.
    - **Translation Robustness**: Aggregation (AUC) of the ML-performance (Precision score) across increasing perturbation levels.
-$$ex : r^x = Auc(s^ML_{/delta_1}/,..., s^ML_{/delta_k}) $$ 
+
+$$ r^x = Auc(ML_{\delta_1}/,..., ML_{\delta_k}) $$ 
+
+where $x\in \{blur,lum,rot,trans\}$ and $\delta_k$ are the different perturbation levels
 
 **Robustness-KPI** : Weighted aggregation of robustness scores across all perturbation types.
 
-$$ I^{Rob} = \sum_{i \in {blur,lum,rot,trans}} \alpha_{r_i} * r^i $$ 
+$$ I_{rob} = \sum_{i \in {blur,lum,rot,trans}} \alpha_{r_i} * r^i $$ 
 
 ### OOD-Monitoring 
 
@@ -157,13 +174,12 @@ $$ I^{Rob} = \sum_{i \in {blur,lum,rot,trans}} \alpha_{r_i} * r^i $$
 ![image](./images/Ood_illu.png)
 
 **Metrics**
-  - **Real-OOD score** : AUROC on the real OOD evaluation set.
-  - **Syn-OOD score** :AUROC on the synthetic OOD evaluation set.
+  - **Real-OOD score** : AUROC on the real OOD evaluation set denoted $OOD_{real}$.
+  - **Syn-OOD score** :AUROC on the synthetic OOD evaluation set $OOD_{syn}$.
   
-	$$ex : s^{ood}_x = \frac{1}{N_{\text{ID}} N_{\text{OOD}}} \sum_{i=1}^{N_{\text{OOD}}} \sum_{j=1}^{N_{\text{ID}}} \mathbb{1}(\hat{s}^{ood}_i > \hat{s}^{ood}_j)\ (\text{AUROC})$$ 
 
 **OOD-Monitoring KPI**: Weighted average of real and synthetic OOD detection performance.
-$$I^{ood} = \alpha_{syn}*s^{ood}_{syn} + \alpha_{real}*s^{ood}_{real}$$
+$$I_{ood} = \alpha_{syn}*OOD_{syn} + \alpha_{real}*OOD_{real}$$
 
 ### Generalization 
 **Purpose**: Measures the model’s ability to generalize to unseen weld types that share characteristics with the training set.
@@ -177,7 +193,9 @@ $$I^{ood} = \alpha_{syn}*s^{ood}_{syn} + \alpha_{real}*s^{ood}_{real}$$
   - **ML-Perf-g** ML performance (e.g., precision) on the generalization set.
 
 **Generalization-KPI**: Aggregated from OP-Perf-g and ML-Perf-g.
-$$I^{gen} = \alpha_{op}*e^{-k_c c^{op}_g} + \alpha_{ml}*s^{ml}_{g}$$
+$$I_{gen} = \alpha_{op}*e^{-k_{op}*OP_g} + \alpha_{ml}*ML_{g}$$
+
+Subindice $g$ in $ML_g$ or $OP_g$ means that metrics are computed on the generalization dataset.
 
 ### Data-Drift handling
 **Purpose**: Evaluates both the robustness and OOD detection of the model in response to gradual data drift.
@@ -191,4 +209,7 @@ $$I^{gen} = \alpha_{op}*e^{-k_c c^{op}_g} + \alpha_{ml}*s^{ml}_{g}$$
   - OOD-d: "OOD-Detection score" : AUROC on the drift-induced OOD subset.  
 
 **Data-Drift-KPI**: Combines performance and detection ability during simulated drift.
-$$I^{Drift} = e^{-k_{op} * c^{op}_{drift}} + s^{ood}_{drift}$$
+$$I_{drift} = \alpha_{OP_{d}} * e^{-k_{op} * OP_{d}} + \alpha_{OOD_{d}}*OOD_{d}$$
+
+
+where subindice $d$ means that the metrics are computed only on the drifted dataset
