@@ -87,7 +87,7 @@ In practice, while these conditions are helpful for guiding design and evaluatio
 
 ## Data Specificities
 
-The dataset contains 22,851 images split among three different welding seams. An important property of this dataset is that it is highly unbalanced. There are only 500 KO images in the entire dataset.
+The dataset contains 22,753 images split among three different welding seams. An important property of this dataset is that it is highly unbalanced. There are about 500 KO images in the entire dataset.
 
 Here is below some examples of weldings `OK` and `KO` on two different welding seams `c10` and `c19`.
 
@@ -158,7 +158,7 @@ Operational specifications can be grouped into three categories: **general**, **
 - The component must be trained on the provided weld image dataset, which may suffer from quality and representativeness issues — requiring data cleaning or augmentation.
 
 #### **Performance Requirements**
-- High detection accuracy must be achieved with minimal false positives.
+- High detection accuracy must be achieved with minimal false negative.
 - Operational performance evaluation will take into account the **criticality** of each weld type.
 - Inference time must not exceed **1/12 of a second** for each image.
 
