@@ -80,7 +80,7 @@ The Operational Design Domain refers to a set of business specifications definin
 
 - Image brightness can range between 60 and 140 lumens.
 - Image blur (caused by production line vibrations) may vary.
-- Welding seams may appear with rotation angles between -10° and +10°.
+- Welding seams may appear with rotation angles between -30° and +30°.
 - The position of the piece in the image may be translated by up to 5 millimeters (approximately 100 pixels, depending on seam and camera position).
 
 In practice, while these conditions are helpful for guiding design and evaluation, they are not always directly exploitable. For example, creating a descriptor capable of measuring image brightness independently of background content is a non-trivial challenge.
