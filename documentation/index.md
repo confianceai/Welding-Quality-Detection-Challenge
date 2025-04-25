@@ -237,6 +237,8 @@ Memory Total (RAM) : 251.26GB
 GPU : Tesla P100-PCIE-16GB
 GPU Memory Total: 16.00GB
 GPU Driver: 570.124.06
+
+Python version : 3.12
 ```
 
 ## Timeline
