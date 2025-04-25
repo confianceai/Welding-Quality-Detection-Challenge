@@ -102,13 +102,14 @@ The following keys are not mandatory, but their presence will significantly cont
 
 The [github repository](https://github.com/confianceai/Challenge-Welding-Reference-Solution-1) contains the code of a naive reference solution proposed for the Welding Quality Detection challenge. This solution is provided as a pedagogical example only and should not be considered a benchmark in terms of performance.
 
-This repository contains three examples Jupyter notebooks that are described as follows:
+This repository contains four examples Jupyter notebooks that are described as follows:
 
--   **01-Tutorial.py:** This script demonstrates how to use the main user functions present in this package. It includes examples of how to list available datasets, explore metadata, and draw basic statistics on contextual variables.
+-   **01-Tutorial.ipynb:** This script demonstrates how to use the main user functions present in this package. It includes examples of how to list available datasets, explore metadata, and draw basic statistics on contextual variables.
 
--   **02-Create_pytorch_dataloader.py:** This script shows how to use the package to create a PyTorch dataloader.
+-   **02-Create_pytorch_dataloader.ipynb:** This script shows how to use the package to create a PyTorch dataloader.
 
--   **03-Test_AIComponent.py:** This script demonstrates how to load an AI component and evaluate it by generating operational and uncertainty metrics.
+-   **03-Test_AIComponent.ipynb:** This script demonstrates how to load an AI component and evaluate it by generating operational and uncertainty metrics.
+-   **04-Submit_Solution.ipynb**  : This notebook shows how to submit a solution to codabench
 
 ## Starting kit
 

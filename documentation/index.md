@@ -57,15 +57,18 @@ Three possible outputs are possible:
 - **KO**: The welding in the image has defects.
 - **UNKNOWN**: The welding state is UNKNOWN. UNKNOWN is used to indicate that the AI-Component is not sure about the predicted class. The UNKNOWN output can be less penalizing than a False Negative (meaning a true KO predicted as OK), which has a critical cost but is also penalized if it used in place of KO label.
 
+Optionally, the AI component could additionally return the probability associated with each possible output state. If probabilities are not provided, they will be inferred based on the label by assigning a probability of 1 to the predicted class.
+
+The component must also produce an **OOD (Out-of-Distribution) score**. This score takes a value between 0 and +infinity. When the score is greater than or equal to 1, it indicates that the input has been detected as OOD. By default, in the absence of an OOD detection module, the OOD score can be set to 0.
+
 This is illustrated by the figure below:
 
 <div style="text-align: center; padding: 40px;">
   <img src="process.png" alt="process" width="800px">
 </div>
 
-Optionally, the AI component could additionally return the probability associated with each possible output state. If probabilities are not provided, they will be inferred based on the label by assigning a probability of 1 to the predicted class.
+See the [Getting_started](docs/getting_started/readme.md) page to get details about the expected component interface.
 
-The component must also produce an **OOD (Out-of-Distribution) score**. This score takes a value between 0 and +infinity. When the score is greater than or equal to 1, it indicates that the input has been detected as OOD. By default, in the absence of an OOD detection module, the OOD score can be set to 0.
 
 ## Purpose of the Challenge
 
@@ -78,12 +81,16 @@ The **Trustworthy AI Challenge** aims to build a reliable AI component to assist
 
 The Operational Design Domain refers to a set of business specifications defining the conditions under which the AI component must operate effectively. In our case, domain experts defined the acceptable conditions for image acquisition:
 
-- Image brightness can range between 60 and 140 lumens.
+- Image brightness may vary
 - Image blur (caused by production line vibrations) may vary.
 - Welding seams may appear with rotation angles between -30° and +30°.
 - The position of the piece in the image may be translated by up to 5 millimeters (approximately 100 pixels, depending on seam and camera position).
 
-In practice, while these conditions are helpful for guiding design and evaluation, they are not always directly exploitable. For example, creating a descriptor capable of measuring image brightness independently of background content is a non-trivial challenge.
+In practice, while these conditions are helpful for guiding design and evaluation, they are not always directly exploitable. For example, creating a descriptor capable of measuring image brightness independently of background content is a non-trivial challenge. That is why
+
+
+See the [Evaluation](docs/evaluation/readme.md) page to get more informations about how those informations are used to evaluate
+your solution.
 
 ## Data Specificities
 
@@ -138,6 +145,8 @@ Visualizing blur distribution conditioned on weld type, shows that blur quality 
 ![image](dataset/Analyse_2.png)
 
 Because descriptors like blur or luminance are not invariant across heterogeneous conditions, the operational domain cannot always be explicitly modeled. Therefore, the challenge is to design AI-component with **robustness** and **anomaly detection** capabilities that can adapt to these ill-defined variations.
+
+See the [Dataset](docs/dataset/readme.md) page to get more informations about the provided datasets.
 
 ## AI Component Specifications and Operational Requirements
 

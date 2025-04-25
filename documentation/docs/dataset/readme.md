@@ -21,6 +21,9 @@ A dataset available in this challenge is described using a Parquet file containi
 | luminosity_level | Percentage of luminosity in the image, measured numerically.                                                                                                    |
 | external_path    | URL of the image. This URL can be used by challengers to directly download the sample from storage.                                                             |
 
+**Remark** : There is no relationship between the integer X in  "data_X" value in "sample_id" field and the integer Y in the name of the image "sample_Y.jpeg". in "path" field and "external_path" field.
+
+
 ## Dataset Examples
 
 ### Example Mini Dataset
