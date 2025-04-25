@@ -221,6 +221,24 @@ Evaluation may require specific datasets — selected or synthetically generated
 
   ![image](dataset/Drift_illu.png)
 
+## Evaluation environment
+
+Each submitted AI component is evaluated in an environment with the following specifications :
+
+```
+System: Linux 5.14.0-503.29.1.el9_5.x86_64 (x86_64)
+Processor: x86_64
+ 
+CPU Cores: 12 physical, 24 logical
+Max Frequency: 3700.00 MHz
+ 
+Memory Total (RAM) : 251.26GB
+ 
+GPU : Tesla P100-PCIE-16GB
+GPU Memory Total: 16.00GB
+GPU Driver: 570.124.06
+```
+
 ## Timeline
 
 <div style="display: flex; justify-content: flex-start; flex-wrap: wrap;">
