@@ -25,7 +25,36 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
 <br>
 <br>
 
-<CountdownTimer targetDate="2025-04-28T15:00:00+01:00" message="Before development phase" />
+<CountdownTimer targetDate="2025-08-18T15:00:00+01:00" message="Before development phase" />
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alert Banner</title>
+</head>
+<body>
+
+<div style="
+  background-color:rgb(238, 224, 211);
+  color: #990000;
+  padding: 20px;
+  margin: 20px 0;
+  border: 2px solid #990000;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+">
+  🚨 <strong>Evaluation Review Alert :</strong> <br>
+  <p align="left">In one month, we will review the scoring program to verify the accuracy of our evaluation.
+The purpose of this task is to ensure a fair and correct assessment of all submitted solutions.<br>
+Following this review, we may adjust our evaluation process if necessary, which could impact solution scores and potentially alter the current ranking.
+We encourage all participants to regularly check their messages to stay updated throughout this process.</p>
+</div>
+
+</body>
+</html>
+
 
 ## Context
 
