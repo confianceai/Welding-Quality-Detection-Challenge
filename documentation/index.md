@@ -149,6 +149,11 @@ Here is below some examples of weldings `OK` and `KO` on two different welding s
 <br>
 <br>
 
+Each image is considered to have only one welding present on it.
+You may see a secondary welding area on background of some images. 
+In those cases, the considered welding for the image is always the main welding present on the foreground.
+ 
+
 ### Unbalanced Dataset
 
 The dataset is highly imbalanced, with **98% of samples labeled as OK** and only **2% as KO** (defective). It is also slightly imbalanced between weld types:  
