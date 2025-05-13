@@ -46,7 +46,7 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
   text-align: center;
 ">
   🚨 <strong>Evaluation Review Alert :</strong> <br>
-  <p align="left">In one month, we will review the scoring program to verify the accuracy of our evaluation.
+  <p align="left">A month into the development phase, we will review the scoring program to verify the accuracy of our evaluation.
 The purpose of this task is to ensure a fair and correct assessment of all submitted solutions.<br>
 Following this review, we may adjust our evaluation process if necessary, which could impact solution scores and potentially alter the current ranking.
 We encourage all participants to regularly check their messages to stay updated throughout this process.</p>
