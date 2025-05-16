@@ -84,7 +84,19 @@ You are free to add any other files you need to this structure in order to make 
 ### Inputs to the AI component
 The AI component shall take the following inputs: 
 - A list of numpy arrays representing the input images to process . 
-- A list of dictionnaries containing a meta-description of the images.
+- A list of dictionnaries containing a meta-description of the images 
+
+During the evaluation process, the following fields will be passed with the images:
+  - welding-seams
+  - resolution
+
+Thus, the predict method of your AI component can suppose that the following fields are available and can be used in the prediction process :
+- image_meta_information[**"welding-seams"**]
+- image_meta_information[**"resolution"**]
+
+An example of such input could be :
+
+ ```[{"welding-seams":"c102","resolution":["1920","1080"]},..,{"welding-seams":"c45","resolution":["960","540"]}]```
 
 ### Outputs of the AI component  
 It shall return a dictionnary with three keys {predictions , probabilities (optional), OOD_score (optional)}
