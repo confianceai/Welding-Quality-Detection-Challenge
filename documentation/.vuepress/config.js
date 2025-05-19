@@ -53,6 +53,10 @@ module.exports = {
             link: "/docs/getting_started/",
           },
           {
+            text: "Frequently Asked questions",
+            link: "/docs/FAQ/",
+          },
+          {
             text: "Newsletter",
             link: "/#nwsltr",
           },
