@@ -10,6 +10,13 @@
           alt="Confiance AI"
         />
       </a>
+      <a class="logo" href="https://www.confiance.ai/foundation/" target="_blank">
+        <img
+          id="logo_etaif"
+          src="/Welding-Quality-Detection-Challenge/Logo_ETAIF.png"
+          alt="European Trustworthy AI Foundation"
+        />
+      </a>
       <a class="logo" href="https://www.irt-systemx.fr/en/" target="_blank">
         <img
           id="logo_systemx"
@@ -138,6 +145,9 @@ export default {
 
     #logo_systemx {
       height: 60px;
+    }
+    #logo_etaif {
+      height: 50px;
     }
     #logo_renault {
       height: 75px;
