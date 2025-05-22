@@ -27,13 +27,6 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
 
 <CountdownTimer targetDate="2025-08-18T15:00:00+01:00" message="Before the end of development phase" />
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Alert Banner</title>
-</head>
-<body>
-
 <div style="
   background-color:rgb(238, 224, 211);
   color: #990000;
@@ -51,10 +44,6 @@ The purpose of this task is to ensure a fair and correct assessment of all submi
 Following this review, we may adjust our evaluation process if necessary, which could impact solution scores and potentially alter the current ranking.
 We encourage all participants to regularly check their messages to stay updated throughout this process.</p>
 </div>
-
-</body>
-</html>
-
 
 ## Context
 
@@ -98,7 +87,6 @@ This is illustrated by the figure below:
 
 See the [Getting_started](docs/getting_started/readme.md) page to get details about the expected component interface.
 
-
 ## Purpose of the Challenge
 
 The **Trustworthy AI Challenge** aims to build a reliable AI component to assist in weld seam conformity qualification. This involves:
@@ -116,7 +104,6 @@ The Operational Design Domain refers to a set of business specifications definin
 - The position of the piece in the image may be translated by up to 5 millimeters (approximately 100 pixels, depending on seam and camera position).
 
 In practice, while these conditions are helpful for guiding design and evaluation, they are not always directly exploitable. For example, creating a descriptor capable of measuring image brightness independently of background content is a non-trivial challenge. That is why
-
 
 See the [Evaluation](docs/evaluation/readme.md) page to get more informations about how those informations are used to evaluate
 your solution.
@@ -150,15 +137,15 @@ Here is below some examples of weldings `OK` and `KO` on two different welding s
 <br>
 
 Each image is considered to have only one welding present on it.
-You may see a secondary welding area on background of some images. 
+You may see a secondary welding area on background of some images.
 In those cases, the considered welding for the image is always the main welding present on the foreground.
- 
 
 ### Unbalanced Dataset
 
-The dataset is highly imbalanced, with **98% of samples labeled as OK** and only **2% as KO** (defective). It is also slightly imbalanced between weld types:  
-- `C20`: 22%  
-- `C33`: 39%  
+The dataset is highly imbalanced, with **98% of samples labeled as OK** and only **2% as KO** (defective). It is also slightly imbalanced between weld types:
+
+- `C20`: 22%
+- `C33`: 39%
 - `C102`: 39%
 
 Some weld types may present defects that are inherently more difficult to detect than others.
@@ -166,6 +153,7 @@ Some weld types may present defects that are inherently more difficult to detect
 ### Heterogeneous Dataset
 
 The dataset contains heterogeneous images due to several factors:
+
 - Three different weld types are included, each with distinct shapes and backgrounds.
 - For a given weld type, multiple viewpoints and capture angles exist.
 - Even within a single setup, image quality varies due to lighting conditions, part positioning, or motion blur.
@@ -196,11 +184,13 @@ Discussions with operators and data analysis have highlighted key needs:
 Operational specifications can be grouped into three categories: **general**, **performance**, and **trustworthy AI** requirements.
 
 #### General Requirements
+
 - The component must process three weld types: `['C20', 'C33', 'C102']`.
 - Input images may vary in size, quality, and framing.
 - The component must be trained on the provided weld image dataset, which may suffer from quality and representativeness issues — requiring data cleaning or augmentation.
 
 #### **Performance Requirements**
+
 - High detection accuracy must be achieved with minimal false negative.
 - Operational performance evaluation will take into account the **criticality** of each weld type.
 - Inference time must not exceed **1/12 of a second** for each image.
@@ -211,11 +201,11 @@ Operational specifications can be grouped into three categories: **general**, **
 
 - **Uncertainty Estimation**: The AI-component should provide classification probabilities and an `"unknown"` class to express indecision.
 
-- **Generalization**: The AI-component should generalize to unseen weld types (`['C19', 'C34', 'C101']`) that share common features with training data. 
+- **Generalization**: The AI-component should generalize to unseen weld types (`['C19', 'C34', 'C101']`) that share common features with training data.
 
-- **Out-of-Distribution (OOD) Monitoring**: The AI-component must detect OOD inputs, such as images with poor visibility due to blur, occlusion, or unusual coloration. 
+- **Out-of-Distribution (OOD) Monitoring**: The AI-component must detect OOD inputs, such as images with poor visibility due to blur, occlusion, or unusual coloration.
 
-- **Drift Handling**: The AI-component must remain robust to **mild image capture degradation** (e.g. Gaussian noise, dead pixels) and detect strong degradation as **OOD**. 
+- **Drift Handling**: The AI-component must remain robust to **mild image capture degradation** (e.g. Gaussian noise, dead pixels) and detect strong degradation as **OOD**.
 
 ## Trustworthy Evaluation
 
@@ -230,19 +220,19 @@ Each is evaluated via **Trust-KPIs**, which are composed of specific criteria me
 Evaluation may require specific datasets — selected or synthetically generated — to simulate controlled scenarios. From the AI component’s predictions on these datasets, the following KPIs will be computed:
 
 - **Performance KPI & Metrics**  
-  Evaluate jointly accuracy (operational and ML), inference time, and weld-type criticality sensitivity taking into account data heterogeneity and operational specificity. It is based on a standard evaluation data set contains 20% of the data drawn to obtain a representative sample of the data. 
+  Evaluate jointly accuracy (operational and ML), inference time, and weld-type criticality sensitivity taking into account data heterogeneity and operational specificity. It is based on a standard evaluation data set contains 20% of the data drawn to obtain a representative sample of the data.
 
 - **Uncertainty KPI & Metrics**  
   Evaluate jointly the relevance and calibration of the AI-Component’s confidence estimates to ensure alignment between expressed uncertainty and actual error risk. The standard evaluation data set contains 20% of the data drawn to obtain a representative sample of the data. It is based on a standard evaluation data set contains 20% of the data drawn to obtain a representative sample of the data.
 
 - **Robustness KPI & Metrics**  
-  Evaluate jointly the AI-Component’s ability to produce stable predictions under slight perturbations (blur, lighting, rotation, translation), in line with ODD specifications. It is based on a Robustness evaluation set generated from real data (chosen to be representative and of good quality) on which we applied perturbation of controlled magnitude. 
+  Evaluate jointly the AI-Component’s ability to produce stable predictions under slight perturbations (blur, lighting, rotation, translation), in line with ODD specifications. It is based on a Robustness evaluation set generated from real data (chosen to be representative and of good quality) on which we applied perturbation of controlled magnitude.
 
-    ![image](dataset/Blur_illu.png)
+  ![image](dataset/Blur_illu.png)
 
 - **OOD Monitoring KPI & Metrics**  
   Evaluate the AI-Component’s ability to detect inputs that fall outside the expected data distribution (e.g. real or synthetic OOD images with poor weld visibility). It is based on a real evaluation set selected through discovery-based protocol, or synthetic evaluation set generated on a set of real data (chosen to be representative and of good quality) to which we have applied strong disturbances (ex: Coloration, brightness, contrast).
- 
+
   ![image](dataset/Ood_illu.png)
 
 - **Generalization KPI & Metrics**  
@@ -262,12 +252,12 @@ Each submitted AI component is evaluated in an environment with the following sp
 ```
 System: Linux 5.14.0-503.29.1.el9_5.x86_64 (x86_64)
 Processor: x86_64
- 
+
 CPU Cores: 12 physical, 24 logical
 Max Frequency: 3700.00 MHz
- 
+
 Memory Total (RAM) : 251.26GB
- 
+
 GPU : Tesla P100-PCIE-16GB
 GPU Memory Total: 16.00GB
 GPU Driver: 570.124.06
@@ -520,7 +510,7 @@ After the kick-off, participants will be invited to create an account and downlo
 ## Useful links:
 
 Github: [Reference Solution](https://github.com/confianceai/Challenge-Welding-Reference-Solution-1)
-        [Starting kit](https://github.com/confianceai/Challenge-Welding-Starter-Kit)
+[Starting kit](https://github.com/confianceai/Challenge-Welding-Starter-Kit)
 
 Solution submission: [Codabench](https://www.codabench.org/competitions/6931/)
 
