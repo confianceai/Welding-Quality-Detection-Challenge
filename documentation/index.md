@@ -38,11 +38,30 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
   font-size: 18px;
   text-align: center;
 ">
-  🚨 <strong>Evaluation Review Alert :</strong> <br>
-  <p align="left">A month into the development phase, we will review the scoring program to verify the accuracy of our evaluation.
-The purpose of this task is to ensure a fair and correct assessment of all submitted solutions.<br>
-Following this review, we may adjust our evaluation process if necessary, which could impact solution scores and potentially alter the current ranking.
-We encourage all participants to regularly check their messages to stay updated throughout this process.</p>
+  📢 <strong>Upcoming Webinar - Submission & Evaluation Process</strong> <br>
+  <br>  
+  <div style="text-align: left;">
+  We are organizing a dedicated <strong>webinar</strong> to help participants better understand the <strong>submission workflow and evaluation process</strong> of the Welding Quality Detection Challenge.<br>
+  <br>
+  📅 <strong>Date:</strong> Monday, June 3<br>
+  🕒 <strong>Time:</strong> 2:00–3:00 PM (CEST)<br>
+  📍 <strong>Online</strong> – the link will be shared via our <a href="https://discord.gg/G9RhAECmVr">Discord</a> shortly before the session.<br>
+  
+
+---
+
+### 🧠 What you’ll learn:
+- How to submit your solution on **Codabench**
+- Evaluation and scoring process details
+- Tips to improve your submission
+- Live Q&A with the organizing team
+
+---
+
+✅ **Open to all participants** – no registration required.
+
+  </div>
+
 </div>
 
 ## Context
