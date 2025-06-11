@@ -43,7 +43,7 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
   <div style="text-align: left;">
   We are organizing a dedicated <strong>webinar</strong> to speak about the last updates on <strong> the scoring computations process</strong>, and <strong>for answering to all  questions you may have about this challenge</strong>
   <br>
-  📅 <strong>Date:</strong> Monday, July 3<br>
+  📅 <strong>Date:</strong> Tuesday, July 1<br>
   🕒 <strong>Time:</strong> 2:00–3:00 PM (CEST)<br>
   📍 <strong>Online</strong> – the link will be shared via our <a href="https://discord.gg/G9RhAECmVr">Discord</a> shortly before the session.<br>
   
