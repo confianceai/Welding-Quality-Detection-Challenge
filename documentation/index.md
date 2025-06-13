@@ -62,6 +62,32 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
 
 </div>
 
+<div style="
+  background-color:rgb(64, 169, 106);
+  color:rgb(231, 236, 234);
+  padding: 20px;
+  margin: 20px 0;
+  border: 2px solid rgb(5, 61, 11);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+">
+  📢 <strong>✅ [Update since June 13th, 1 p.m– Scoring Program Revised]</strong> <br>
+  <br>  
+  <div style="text-align: left;">
+  As announced at the beginning of the development phase, we have now updated the scoring program to better align with the objectives of the challenge.
+</strong>
+
+  🔄 The new version is online, previous submissions have been rescored accordingly. 
+
+  📌 See this [section](docs/evaluation/readme.md#last-scoring-update) to get more informations about the modifications brought by this scoring update
+  
+  </div>
+
+</div>
+
+
 ## Context
 
 In the highly competitive automotive industry, quality control is essential to ensure the reliability of vehicles and user safety. A failure in quality control can severely jeopardize safety, result in significant financial costs, and cause substantial reputational damage to the company involved.

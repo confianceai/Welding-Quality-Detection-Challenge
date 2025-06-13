@@ -232,3 +232,31 @@ $$I_{drift} = \alpha_{OP_{d}} * e^{-k_{op} * OP_{d}} + \alpha_{OOD_{d}}*OOD_{d}$
 
 
 where subindice $d$ means that the metrics are computed only on the drifted dataset
+
+# Last scoring update
+
+Since June 13th 1 p.m , several minor changes have been made to the evaluation pipeline, incorporating feedback from the warm-up challenge.
+These adjustments aim to improve the fairness, relevance, and readability of the metrics produced by the evaluation process.
+The ranking logic was validated using both virtual reference solutions (e.g., with 1% error) and naive solutions (e.g., always predicting "OK") to ensure consistency in the scoring system.
+ 
+Minor changes:
+- The FBeta score (β = 1) is now used as the main performance and robustness metric.
+- Some metric formulas were slightly adjusted to ensure that: a perfect solution receives the maximum score on each attribute while a worst-case solutions (varying by KPI-attribute) receive the minimum score.
+- Metric scaling coefficients and aggregation weights were refined based on performance observed with virtual reference solutions.
+- A linear piecewise rescaling was applied to KPI attributes, so that: poor solution (e.g., "Full UNKNOWN") scores around 10 while a good solution (e.g., ~3% error) scores around 90 for most KPI attributes.
+- The drift evaluation set was slightly extended to reduce the dominance of KO cases, which had introduced bias into the scoring.
+ 
+Example – Reference Solution Performance Table:
+ 
+As an example, we include below the performance table of reference virtual solutions used to validate the logical consistency of the ranking :
+ 
+Virtual reference solutions:
+- Perfect: No classification or OOD detection errors → Score: 100
+- Very Good: 0.5% to 1% classification error and 1% OOD detection error → Score: ~95–99
+- Good: 2.5% to 5% classification error and 5% OOD detection error → Score: ~90
+ 
+Naive solutions:
+- Full UNKNOWN: Always predicts "unknown" → Score: ~10
+- Full Random: Random predictions → Very low score
+- Full KO: Always predicts "KO" → Very low score
+- Full OK: Always predicts "OK" → Very low score
