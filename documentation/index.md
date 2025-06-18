@@ -46,11 +46,12 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
   📅 <strong>Date:</strong> Tuesday, July 1<br>
   🕒 <strong>Time:</strong> 2:00–3:00 PM (CEST)<br>
   📍 <strong>Online</strong> – the link will be shared via our <a href="https://discord.gg/G9RhAECmVr">Discord</a> shortly before the session.<br>
-  
+
 
 ---
 
 ### 🧠 What you’ll learn:
+
 - Presentation of the scoring process and its last updates since the first April version.
 - Live Q&A with the organizing team
 
@@ -77,16 +78,14 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
   <br>  
   <div style="text-align: left;">
   As announced at the beginning of the development phase, we have now updated the scoring program to better align with the objectives of the challenge.
-</strong>
 
-  🔄 The new version is online, previous submissions have been rescored accordingly. 
+🔄 The new version is online, previous submissions have been rescored accordingly.
 
-  📌 See this [section](docs/evaluation/readme.md#last-scoring-update) to get more informations about the modifications brought by this scoring update
-  
+📌 See this [section](docs/evaluation/readme.md#last-scoring-update) to get more informations about the modifications brought by this scoring update
+
   </div>
 
 </div>
-
 
 ## Context
 
