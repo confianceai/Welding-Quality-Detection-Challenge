@@ -28,42 +28,6 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
 <CountdownTimer targetDate="2025-08-18T15:00:00+01:00" message="Before the end of development phase" />
 
 <div style="
-  background-color:rgb(238, 224, 211);
-  color: #990000;
-  padding: 20px;
-  margin: 20px 0;
-  border: 2px solid #990000;
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-  text-align: center;
-">
-  📢 <strong>NEW Upcoming Webinar #3 - Last updates for the final phase</strong> <br>
-  <br>  
-  <div style="text-align: left;">
-  We are organizing a dedicated <strong>webinar</strong> to speak about the last updates on <strong> the scoring computations process</strong>, and <strong>for answering to all  questions you may have about this challenge</strong>
-  <br>
-  📅 <strong>Date:</strong> Tuesday, July 1<br>
-  🕒 <strong>Time:</strong> 2:00–3:00 PM (CEST)<br>
-  📍 <strong>Online</strong> – the link will be shared via our <a href="https://discord.gg/G9RhAECmVr">Discord</a> shortly before the session.<br>
-
-
----
-
-### 🧠 What you’ll learn:
-
-- Presentation of the scoring process and its last updates since the first April version.
-- Live Q&A with the organizing team
-
----
-
-✅ **Open to all participants** – no registration required.
-
-  </div>
-
-</div>
-
-<div style="
   background-color:rgb(64, 169, 106);
   color:rgb(231, 236, 234);
   padding: 20px;

@@ -111,6 +111,14 @@ The goal of this aggregation process is to produce a single, comprehensive trust
 
   where N is the number of sample in the evaluation datasset and $k_{seams}$ is the name of the welding-seam
 
+ Here is below the considererd cost matrix used to penalize the different situations.
+
+  |                | Predicted KO | Predicted OK |Predicted UNKNOWN|
+  |----------------|----------------|----------------|-----------|
+  | **True KO**    | 26.4           | 3000           | 41        |
+  | **True OK**    | 30             | 0.4            | 20        |
+
+  As it was mentionned in the description of the usecase, a False negative is highly penalized.
 
   - **ML-Perf** (Machine Learning Performance): Assesses performance using standard ML metrics such as precision.
     $$ ML = \frac{\sum_{i=1}^{N} \mathbb{1} (y_i = 1 \land \hat{y}_i = 1)}{\sum_{i=1}^{N} \mathbb{1} (\hat{y}_i = 1)}$$
