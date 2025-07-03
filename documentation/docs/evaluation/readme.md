@@ -92,6 +92,8 @@ $$f'(x) =
   - Each weight reflects the relative importance of its corresponding attribute within the overall trustworthy AI assessment.
 $$ score= \alpha_1*I_{perf} + \alpha_2*I_{U} + \alpha_3*I_{rob} + \alpha_4*I_{ood} + \alpha_5*I_{gen}+\alpha_6*I_{drift}$$
 
+with :
+- $\alpha_1$ =0.3,  $\alpha_2$ =0.15,  $\alpha_3$ =0.25  $\alpha_4$ =0.2,   $\alpha_5$ =0.05,  $\alpha_6$ =0.05, 
 ### 6. Purpose of the Aggregation Protocol
 
 The goal of this aggregation process is to produce a single, comprehensive trust score that captures the system’s performance across six key trust attributes. Each of these attributes is assessed through multiple criteria, measured with relevant metrics and normalized to reflect their practical impact.
@@ -110,6 +112,12 @@ The goal of this aggregation process is to produce a single, comprehensive trust
        $$OP = \sum_{k}^{|N|} \sum_{i}^{true_{class}} \sum_{j}^{pred_{class}} \mathbb{1}_{Top_{class}(\hat{y}_k)=j} * cost(i,j,k,k_{seam}) $$
 
   where N is the number of sample in the evaluation datasset and $k_{seams}$ is the name of the welding-seam
+
+  - $k_{c_{102}}= 0.2$
+  - $k_{c_{20}}= 0.4$
+  - $k_{c_{33}}= 0.4$
+
+
 
  Here is below the considererd cost matrix used to penalize the different situations.
 
@@ -131,7 +139,12 @@ where $y_i$ is the ground truth and $\hat{y}_i$ is the AI component prediction
 **Performance-KPI**: Combines OP-Perf and ML-Perf using a weighted average, penalized by inference time to reflect operational constraints.
 $$ I_{perf}=\frac{(\alpha_{op} e^{-k_c OP} + \alpha_{ml} ML)}{1 + k_t ln(1+t)} $$
 
-where $t$ is the inference time
+where :
+- $t$ is the 95-th quantile of set of inference time on evaluation dataset
+- $k_c=1$
+- $k_t=12$
+- $\alpha_{op}=0.4$
+- $\alpha_{ml}=0.6$
 
 ### Uncertainty assessement
 **Purpose** : Evaluates the AI component’s ability to express meaningful and calibrated uncertainty, helping assess the risk of decision errors.
@@ -147,10 +160,11 @@ where $t$ is the inference time
   - **U-Calib** (Calibration Quality): Evaluates how well predicted probabilities align with actual error rates (e.g., Expected Calibration Error).
     $$ UCalib = \sum_{m=1}^{M} \frac{|B_m|}{N} acc(B_m) - conf(B_m)$$
 
-Fore more information, see Expected calibration error definition :  lien wiki
+    This indicator is separately computed for both OK samples subset and KO sample subset to take into account the unbalanced property of the dataset. The used ponderation weights are $UCalib_{OK}=0.2$ and $UCalib_{KO}=0.8$.
 
 **Uncertainty-KPI** : Combines Uncertainty Operational Gain with calibration error.
-$$I_{U} = e^{k_{UOP}} * (1 - UCalib)^{k_{UCalib}} $$
+
+$$I_{U} = UOP * (1 - 2*(UCalib_{KO}*0.2+UCalib_{OK}*0.8))$$
 
 ### Robustness
 **Purpose**: Assesses model stability under perturbations such as blur, lighting variation, rotation, and translation.
@@ -184,6 +198,7 @@ where $x\in \{blur,lum,rot,trans\}$ and $\delta_k$ are the different perturbatio
 
 $$ I_{rob} = \sum_{i \in {blur,lum,rot,trans}} \alpha_{r_i} * r^i $$ 
 
+$\alpha_{blur}=0.3$ , $\alpha_{lum}=0.3$ , $\alpha_{rot}=0.2$, $\alpha_{trans}=0.2$
 ### OOD-Monitoring 
 
 **Purpose**: Evaluates the model's ability to detect and handle out-of-distribution (OOD) inputs.
@@ -208,6 +223,10 @@ Here is below some example of image from both datasets
 **OOD-Monitoring KPI**: Weighted average of real and synthetic OOD detection performance.
 $$I_{ood} = \alpha_{syn}*OOD_{syn} + \alpha_{real}*OOD_{real}$$
 
+with : 
+
+$\alpha_{syn}=0.3$, $\alpha_{real} =0.7$
+
 ### Generalization 
 **Purpose**: Measures the model’s ability to generalize to unseen weld types that share characteristics with the training set.
 
@@ -222,7 +241,11 @@ $$I_{ood} = \alpha_{syn}*OOD_{syn} + \alpha_{real}*OOD_{real}$$
 **Generalization-KPI**: Aggregated from OP-Perf-g and ML-Perf-g.
 $$I_{gen} = \alpha_{op}*e^{-k_{op}*OP_g} + \alpha_{ml}*ML_{g}$$
 
+with $k_{op}=0.05$
+
 Subindice $g$ in $ML_g$ or $OP_g$ means that metrics are computed on the generalization dataset.
+
+The  values for $\alpha$ are the same as those used for the computation of operational score.
 
 ### Data-Drift handling
 **Purpose**: Evaluates both the robustness and OOD detection of the model in response to gradual data drift.
@@ -238,9 +261,11 @@ Subindice $g$ in $ML_g$ or $OP_g$ means that metrics are computed on the general
 **Data-Drift-KPI**: Combines performance and detection ability during simulated drift.
 $$I_{drift} = \alpha_{OP_{d}} * e^{-k_{op} * OP_{d}} + \alpha_{OOD_{d}}*OOD_{d}$$
 
-
 where subindice $d$ means that the metrics are computed only on the drifted dataset
 
+The coefficient values are : 
+
+$k_{op}$=0.05, $\alpha_{OP_{d}}=0.5$, $\alpha_{OOD_{d}}=0.5$
 # Last scoring update
 
 Since June 13th 1 p.m , several minor changes have been made to the evaluation pipeline, incorporating feedback from the warm-up challenge.
