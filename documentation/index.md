@@ -25,7 +25,30 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
 <br>
 <br>
 
-<CountdownTimer targetDate="2025-08-18T15:00:00+01:00" message="Before the end of development phase" />
+<CountdownTimer targetDate="2025-08-31T23:00:00+01:00" message="Before the end of development phase" />
+
+<div style="
+  background-color:rgba(223, 167, 115, 1);
+  color:rgb(231, 236, 234);
+  padding: 20px;
+  margin: 20px 0;
+  border: 2px solid rgba(122, 90, 59, 1);
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+">
+  📢 <strong>✅ [Update on the developmment phase]</strong> <br>
+  <br>  
+  <div style="text-align: left;">
+  The deadline of the development phase has been pushed from August 18th, to August 31st.<br>
+  We hope this ajustment comes in handy for the final stretch. <br>
+  <br>
+  Also, due to the summer break, our team will be unavailable from August 8 (evening) to August 17 (inclusive). No support or replies during this period.
+
+  </div>
+
+</div>
 
 <div style="
   background-color:rgb(64, 169, 106);
@@ -279,12 +302,12 @@ Python version : 3.12
     Competitors will receive the starter-kit and will have access to the challenge datasets.</li>
     <li><b>Warm-up phase:</b> from <span class=crossed>March 17st to April 14th</span> March 31st to April 27th.<br>
     Participants can get familiar with the competition platform and the provided material. Organizers can use participants’ feedback to adjust the challenge for the next phases.</li>
-    <li><b>Development phase:</b> from <span class=crossed>April 14th</span> April 28th to August 17th.<br>
+    <li><b>Development phase:</b> from <span class=crossed>April 14th to August 17th</span> April 28th to August 31st.<br>
     Participants will develop their own solutions, which they can test on a provided dataset. They will be able to see the score of their submitted solution. Any submitted solution can be adjusted until the deadline is met.</li>
-    <li><b>Final phase:</b> from August 18th to September.<br>
+    <li><b>Final phase:</b> from <span class=crossed>August 18th</span> September 1st to September 15th.<br>
     During this phase, the organizers will review the submitted results, finalize the ranking, and prepare the results.</li>
-    <li><b>Results announcement:</b> September 2025 <br>
-    The winners will be announced during the Confiance.ai Community Event 2025.</li>
+    <li><b>Results announcement:</b> September 16th 2025 <br>
+    The winners will be announced during the Trustworthy AI Summit.</li>
   </ul>
 </div>
 
