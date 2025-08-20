@@ -155,7 +155,7 @@ where :
   - **U-OP** (Uncertainty Operational Gain): Relative measures of the virtual gain (in operational term) to consider probabilistic outputs compared to hard outputs predictions in relation to the gap between the perfect solution and the current hard outputs predictions.
   $$c^{U} = \sum_{k}^{|N|} \sum_{i}^{true_{class}} \sum_{j}^{pred_{class}} \hat{y}_k(j) * cost(i,j,k,k_{seam}) $$
 
-  $$ UOP = \frac{(c^{U} - c^{op})}{(c^{op} - c^{op}_{perfect})}$$
+  $$ UOP = \frac{(c^{op}-c^{U})}{(c^{op} - c^{op}_{perfect})}$$
 
   - **U-Calib** (Calibration Quality): Evaluates how well predicted probabilities align with actual error rates (e.g., Expected Calibration Error).
     $$ UCalib = \sum_{m=1}^{M} \frac{|B_m|}{N} acc(B_m) - conf(B_m)$$
