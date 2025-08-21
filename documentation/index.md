@@ -43,8 +43,6 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
   <div style="text-align: left;">
   The deadline of the development phase has been pushed from August 18th, to August 31st.<br>
   We hope this ajustment comes in handy for the final stretch. <br>
-  <br>
-  Also, due to the summer break, our team will be unavailable from August 8 (evening) to August 17 (inclusive). No support or replies during this period.
 
   </div>
 
@@ -80,7 +78,7 @@ In the highly competitive automotive industry, quality control is essential to e
 
 One of the challenges for Renault is to improve the reliability of quality control for welding seams in automotive body manufacturing. Currently, this inspection is consistently performed by a human operator due to the legal dimension related to user safety. During an industrial process, this task is resource-consuming. The key challenge is to develop an AI-based solution that reduces the number of inspections required by the operator through automated pre-validation.
 
-Within the [Confiance.ai](https://www.confiance.ai/) Research Program, Renault Group and SystemX worked jointly on the development of trustworthy AI components tackling this problem. Now part of the [European Trustworthy Foundation (ETF)](https://www.confiance.ai/foundation/), we want to ensure that these tools effectively validate the proposed AI-Component according to the trustworthy criteria defined by the industry (Intended Purpose).
+Within the [Confiance.ai](https://www.confiance.ai/) Research Program, Renault Group and SystemX worked jointly on the development of trustworthy AI components tackling this problem. Now part of the [European Trustworthy AI Association](https://www.trustworthy-ai-association.eu/), we want to ensure that these tools effectively validate the proposed AI-Component according to the trustworthy criteria defined by the industry (Intended Purpose).
 
 This industrial use case, provided by Renault Group, represents the “Visual Inspection” thematic through a classification problem.
 
