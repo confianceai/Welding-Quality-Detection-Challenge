@@ -25,27 +25,6 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
 <br>
 <br>
 
-<CountdownTimer targetDate="2025-08-31T23:00:00+01:00" message="Before the end of development phase" />
-
-<div style="
-  background-color:rgba(223, 167, 115, 1);
-  color:rgb(231, 236, 234);
-  padding: 20px;
-  margin: 20px 0;
-  border: 2px solid rgba(122, 90, 59, 1);
-  border-radius: 8px;
-  font-family: Arial, sans-serif;
-  font-size: 18px;
-  text-align: center;
-">
-  📢 <strong>✅ [Update on the developmment phase]</strong> <br>
-  <br>  
-  <div style="text-align: left;">
-  The deadline of the development phase has been pushed from August 18th, to August 31st.<br>
-  We hope this ajustment comes in handy for the final stretch. <br>
-
-  </div>
-
 </div>
 
 <div style="
@@ -59,18 +38,40 @@ tagline: "Join us and engage with a real-world challenge to enhance weld quality
   font-size: 18px;
   text-align: center;
 ">
-  📢 <strong>✅ [Update since June 13th, 1 p.m– Scoring Program Revised]</strong> <br>
-  <br>  
-  <div style="text-align: left;">
-  As announced at the beginning of the development phase, we have now updated the scoring program to better align with the objectives of the challenge.
 
-🔄 The new version is online, previous submissions have been rescored accordingly.
-
-📌 See this [section](docs/evaluation/readme.md#last-scoring-update) to get more informations about the modifications brought by this scoring update
-
-  </div>
+The challenge has officially ended
 
 </div>
+
+# Final score ranking
+
+| Rank | Name            | Perf KPI   | UQ KPI    | Rob KPI  | Gen KPI   | ODD KPI   | Drift KPI | Final score |
+|------|-----------------|--------|-------|-------|-------|-------|-------|--------------|
+| #1   | yeleon          | 95,23  | 91,74 | 86,08 | 10,86 | 95,82 | 77,17 | **87,41**    |
+| #2   | niklas_wegner   | 80,9   | 99,89 | 96,39 | 9,41  | 87,41 | 36,56 | **83,13**    |
+| #3   | silvanosky      | 92,89  | 91,77 | 96,19 | 36,66 | 66,7  | 41,74 | **82,94**    |
+| #4   | zhenling        | 90,38  | 64,95 | 84,57 | 9,05  | 91,11 | 78,07 |  **80,58**       |
+| #5   | optimizerprime  | 90,17  | 92,63 | 97,04 | 35,36 | 39,57 | 90,37 |  **79,41**       |
+| #6   | loic_a          |54.22	  |62.97	|90.62	|37.83	|8.72	  |60.43  |  **59,39**        |
+| #7   | nitzkhanal      | 68,87  | 39,05 | 92,5  | 8,62  | 0     | 0,48  | **50,10**        |
+| #8   | wenjiaa         | 40.32  | 70.22 | 57.43  | 7.93  | 0     | 77.45  | **41.27**        |
+| #9   | anas2312        | 3.37| 78.84 |69.31 | 8.93 | 4.0    | 57.41 | **34.28**        |
+| #10  |AM_MTT           |8.42  |10.39 |9.82|9.4|8.08|39.7|**10.61**|
+
+## Initial solutions provided 
+| Rank | Name            | Perf KPI   | UQ KPI    | Rob KPI  | Gen KPI   | ODD KPI   | Drift KPI | Final score |
+|------|-----------------|--------|-------|-------|-------|-------|-------|--------------|
+| challenge_provided_solution| basic_solution  |4.51| 25.09|8.9|9.35|17.51|62.8|**14.45**| 
+| challenge_random_solution  | pure_random_solution |4.75|20.33|8.88|6.76|0|0|**4.75**|  
+
+# Prices winners
+
+<ul>
+  <li>🥇 <b>1st Place:</b> yeleon </li>
+  <li>🥈 <b>2nd Place:</b> niklas_wegner</li>
+  <li>🥉 <b>3rd Place:</b> silvanosky</li>
+  <li>💡 <b>Most Original Solution:</b> yeleon</li>
+</ul>
 
 ## Context
 
