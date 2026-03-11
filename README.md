@@ -2,7 +2,7 @@
 
 This Webpage is the official documentation of the Welding Quality Detection Challenge, organized by the [IRT SystemX](https://www.irt-systemx.fr/) and [Confiance AI](https://www.confiance.ai/).
 
-Deployed at https://confianceai.github.io/Welding-Quality-Detection-Challenge/
+Deployed at https://etaia.github.io/Welding-Quality-Detection-Challenge/
 
 ## Running the documentation locally
 
